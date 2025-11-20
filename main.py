@@ -7,7 +7,7 @@ import uvicorn
 
 
 
-app = FastAPI(title="Transportes el Buen Pastor API")
+app = FastAPI(title="Transportes el Buen Pastor API version 0.1.0")
 
 app.include_router(router_bus)
 app.include_router(router_conductor)
