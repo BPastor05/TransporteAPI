@@ -3,6 +3,7 @@ from routes.bus import router as router_bus
 from routes.conductor import router as router_conductor
 from routes.ruta import router as router_ruta
 from routes.recorrido import router as router_recorrido
+import uvicorn
 
 
 
@@ -15,4 +16,7 @@ app.include_router(router_recorrido)
 @app.get("/")
 def read_root():
     return {"API de una empresa de Buses"}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
 

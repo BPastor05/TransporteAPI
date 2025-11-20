@@ -16,7 +16,7 @@ logger = logging.getLogger(__name__)
 async def get_one( id: int ) -> Conductor:
 
     selectscript = """
-       SELECT TOP 
+       SELECT 
         [ID],
         [licencia],
         [nombre]
@@ -185,8 +185,8 @@ async def get_one_recorrido_conductor( conductor_ID: int, recorrido_ID: int ) ->
             on r.ID_Conductor = c.ID
             INNER JOIN transporte.Ruta as ru
             on r.ID_Ruta=ru.ID
-        WHERE b.ID = ?
-        and c.ID =?;
+        WHERE c.ID = ?
+        and r.ID =?;
     """
 
     params = [conductor_ID, recorrido_ID]
